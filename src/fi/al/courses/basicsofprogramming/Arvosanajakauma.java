@@ -1,7 +1,9 @@
 /**************************************************************************************************
  *
  * Course:         The *VERY* Basics of Programming, Spring 2007
+ *
  * Participant:    Aleksi Lukkarinen
+ *
  * Title of File:  Arvosanajakauma
  * Creation Date:  30.3.2007
  *
@@ -17,8 +19,7 @@ import java.io.*;
 /**
  * <p>Title: Arvosanajakauma</p>
  */
-public class Arvosanajakauma
-{
+public class Arvosanajakauma {
   private final static String   MSG_END       = "%nOhjelma lopetetaan.%n";
   private final static int      MAX_STUDENTS  = 50;
   private final static int      MAX_GRADE     = 5;
