@@ -1,21 +1,24 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  PainoindeksiMetodeina
- * Creation Date:  26.1.2007
+ * Title of File: PainoindeksiMetodeina
+ *
+ * Creation Date: 26.1.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
 
+
 import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
-public class PainoindeksiMetodeina
-{
+
+
+public class PainoindeksiMetodeina {
   public static void main(String[] args) {
     double length = 0;
     double weight = 0;

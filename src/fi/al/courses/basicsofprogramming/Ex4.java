@@ -1,26 +1,33 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  Excercise 4 from "Java 2 - Ohjelmoinnin peruskirja"
- * Creation Date:  12.1.2007
+ * Title of File: Excercise 4 from "Java 2 - Ohjelmoinnin peruskirja"
+ *
+ * Creation Date: 12.1.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
 
+
 import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
+
+
 /**
- * <p>Title: Ex4</p>
+ * <p>
+ * Title: Ex4
+ * </p>
  *
- * <p>Description: Excercise 4</p>
+ * <p>
+ * Description: Excercise 4
+ * </p>
  */
-public class Ex4
-{
+public class Ex4 {
   public static void main(String[] args) {
     long number = 0;
 

@@ -1,34 +1,37 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  YhtaTirehtoorinSirkusta
- * Creation Date:  16.2.2007
+ * Title of File: YhtaTirehtoorinSirkusta
+ *
+ * Creation Date: 16.2.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
 
+
 import java.io.*;
 
 
+
+
 /**
- * <p>Title: YhtaTirehtoorinSirkusta</p>
+ * <p>
+ * Title: YhtaTirehtoorinSirkusta
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class YhtaTirehtoorinSirkusta
-{
-  /**
-   * Lastenlipun hinta
-   */
+public class YhtaTirehtoorinSirkusta {
+  /** Lastenlipun hinta */
   private static final long TICKET_PRICE_CHILD = 12;
 
-  /**
-   * Aikuistenlipun hinta
-   */
+  /** Aikuistenlipun hinta */
   private static final long TICKET_PRICE_ADULT = 24;
 
   /**
@@ -45,25 +48,26 @@ public class YhtaTirehtoorinSirkusta
     clientType = askClientType();
     while (clientType != 0) {
       switch (clientType) {
-        case 1: countMales++;    break;
-        case 2: countFemales++;  break;
-        case 3: countChildren++; break;
+      case 1:
+        countMales++;
+        break;
+      case 2:
+        countFemales++;
+        break;
+      case 3:
+        countChildren++;
+        break;
       }
 
       clientType = askClientType();
     }
 
-    income = (countMales + countFemales) * TICKET_PRICE_ADULT +
-            countChildren * TICKET_PRICE_CHILD;
+    income = (countMales + countFemales) * TICKET_PRICE_ADULT + countChildren * TICKET_PRICE_CHILD;
 
-    output = "%n%nEsitykseen tulleet:%n" +
-            "  - miehiä: %d%n" +
-            "  - naisia: %d%n" +
-            "  - lapsia: %d%n" +
-            "Esityksen tuotto: %d rahaa.%n";
+    output = "%n%nEsitykseen tulleet:%n" + "  - miehiä: %d%n" + "  - naisia: %d%n"
+        + "  - lapsia: %d%n" + "Esityksen tuotto: %d rahaa.%n";
 
-    System.out.printf(output,
-            countMales, countFemales, countChildren, income);
+    System.out.printf(output, countMales, countFemales, countChildren, income);
   }
 
 
@@ -81,8 +85,7 @@ public class YhtaTirehtoorinSirkusta
           throw new Exception();
 
         return clientType;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }

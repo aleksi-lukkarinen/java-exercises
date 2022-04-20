@@ -1,11 +1,12 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  LahtoJarjestys
- * Creation Date:  30.3.2007
+ * Title of File: LahtoJarjestys
+ *
+ * Creation Date: 30.3.2007
  *
  **************************************************************************************************/
 
@@ -15,14 +16,16 @@ package fi.al.courses.basicsofprogramming;
 
 
 /**
- * <p>Title: LahtoJarjestys</p>
+ * <p>
+ * Title: LahtoJarjestys
+ * </p>
  */
 public class LahtoJarjestys {
   public static final int NUMBER_OF_SKIERS = 45;
 
   public static void main(String[] args) {
-    int[] skiers    = new int[NUMBER_OF_SKIERS + 1];
-    int   startPos  = 0;
+    int[] skiers = new int[NUMBER_OF_SKIERS + 1];
+    int startPos = 0;
 
     // Arvotaan lähtöpaikat
     for (int skier = 1; skier <= NUMBER_OF_SKIERS; skier++) {

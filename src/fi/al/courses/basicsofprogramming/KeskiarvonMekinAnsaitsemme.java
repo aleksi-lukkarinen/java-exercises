@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  KeskiarvonMekinAnsaitsemme
- * Creation Date:  16.2.2007
+ * Title of File: KeskiarvonMekinAnsaitsemme
+ *
+ * Creation Date: 16.2.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,9 +19,13 @@ import java.io.*;
 
 
 /**
- * <p>Title: KeskiarvonMekinAnsaitsemme</p>
+ * <p>
+ * Title: KeskiarvonMekinAnsaitsemme
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
 public class KeskiarvonMekinAnsaitsemme {
   /**
@@ -32,15 +38,15 @@ public class KeskiarvonMekinAnsaitsemme {
     long countPositive = 0, countNegative = 0;
     double input = 0.0;
 
-    System.out.println("\nSovellus laskee sekä positiivisten että negatiivisten syötettyjen lukujen keskiarvon.");
+    System.out.println(
+        "\nSovellus laskee sekä positiivisten että negatiivisten syötettyjen lukujen keskiarvon.");
 
     input = readNumber();
     while (input != 0.0) {
       if (input > 0.0) {
         sumPositive += input;
         countPositive++;
-      }
-      else {
+      } else {
         sumNegative += input;
         countNegative++;
       }
@@ -49,16 +55,16 @@ public class KeskiarvonMekinAnsaitsemme {
     }
 
     if (countPositive > 0 && countNegative > 0)
-      System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive) +
-              " ja negatiivisten " + (sumNegative / countNegative) + "." );
+      System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive)
+          + " ja negatiivisten " + (sumNegative / countNegative) + ".");
     else if (countPositive > 0 && countNegative == 0)
-      System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive) +
-              ", mutta negatiivisia lukuja ei syötetty." );
+      System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive)
+          + ", mutta negatiivisia lukuja ei syötetty.");
     else if (countPositive == 0 && countNegative > 0)
-      System.out.println("\nNegatiivisten lukujen keskiarvo on " + (sumNegative / countNegative) +
-              ", mutta positiivisia lukuja ei syötetty." );
+      System.out.println("\nNegatiivisten lukujen keskiarvo on " + (sumNegative / countNegative)
+          + ", mutta positiivisia lukuja ei syötetty.");
     else
-      System.out.println("\nYhtään lukua ei syötetty." );
+      System.out.println("\nYhtään lukua ei syötetty.");
   }
 
 
@@ -80,13 +86,11 @@ public class KeskiarvonMekinAnsaitsemme {
         if (dblInput == 0.0 && !strInput.equals("0"))
           throw new Exception();
 
-        validInput = true;    // Kaikki kunnossa -> nostetaan merkkilippu
-      }
-      catch (Exception ex) {
+        validInput = true; // Kaikki kunnossa -> nostetaan merkkilippu
+      } catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
 
     // Jos käyttäjä syötti "puhtaan" nollan, palautetaan nolla - muutoin palautetaan syötetty luku.

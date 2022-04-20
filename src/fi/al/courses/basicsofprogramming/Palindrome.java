@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  Palindrome
- * Creation Date:  23.3.2007
+ * Title of File: Palindrome
+ *
+ * Creation Date: 23.3.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 import fi.al.courses.basicsofprogramming.utils.ALException;
@@ -18,12 +20,15 @@ import fi.al.courses.basicsofprogramming.utils.ALException;
 
 
 /**
- * <p>Title: Palindrome</p>
+ * <p>
+ * Title: Palindrome
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class Palindrome
-{
+public class Palindrome {
   /**
    * main
    *
@@ -33,8 +38,8 @@ public class Palindrome
     String candidate = "";
 
     // Aloitusviesti
-    System.out.printf("%n--:: Palindromitarkastaja(tm) ::--%n%n%n" +
-            "Terve! Tämä ohjelma tarkastaa, onko sille syötetty merkkijono palindromi.%n");
+    System.out.printf("%n--:: Palindromitarkastaja(tm) ::--%n%n%n"
+        + "Terve! Tämä ohjelma tarkastaa, onko sille syötetty merkkijono palindromi.%n");
 
     // Luetaan ja tarkastetaan merkkijonoja, kunnes käyttäjä syöttää pisteen ('.')
     candidate = readAndCheck();
@@ -54,9 +59,9 @@ public class Palindrome
 
 
   private static String readAndCheck() {
-    BufferedReader stdin  = new BufferedReader(new InputStreamReader(System.in));
-    String input          = "";
-    int charCounter       = 0;
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    String input = "";
+    int charCounter = 0;
     char[] inputChars, candidate;
 
     // Luetaan käyttäjältä merkkijonoja, kunnes hän syöttää
@@ -82,9 +87,9 @@ public class Palindrome
         // Käydään ehdokasmerkkijono läpi merkki merkiltä muodostaen testausta
         // varten uusi vain sallittuja merkkejä sisältävä merkkijono. Jos
         // vastaan tulee virheellisiä merkkejä, syöte hylätään.
-        inputChars    = input.toCharArray();
-        candidate     = new char[inputChars.length];
-        charCounter   = 0;
+        inputChars = input.toCharArray();
+        candidate = new char[inputChars.length];
+        charCounter = 0;
         for (char c : inputChars) {
           // Hypätään tyhjän tilan yli
           if (Character.isWhitespace(c))
@@ -100,8 +105,7 @@ public class Palindrome
 
         // Palautetaan uusi merkkijono mahdollisuuksien mukaan pieniksi kirjaimiksi muunnettuna
         return new String(candidate).substring(0, charCounter);
-      }
-      catch (ALException ex) {
+      } catch (ALException ex) {
         // Käsitellään itse luodut poikkeukset
         String msg = ex.getMessage();
 
@@ -109,8 +113,7 @@ public class Palindrome
           System.out.printf("%s%n", msg);
         else
           System.out.printf("Virheellinen syöte.%n");
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         // Käsitellään Javan luomat poikkeukset
         System.out.printf("Virheellinen syöte.%n");
       }

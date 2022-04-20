@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  Excercise 28 from "Java 2 - Ohjelmoinnin peruskirja"
- * Creation Date:  12.1.2007
+ * Title of File: Excercise 28 from "Java 2 - Ohjelmoinnin peruskirja"
+ *
+ * Creation Date: 12.1.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,12 +19,15 @@ import java.io.*;
 
 
 /**
- * <p>Title: Tahtikolmio</p>
+ * <p>
+ * Title: Tahtikolmio
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class Tahtikolmio
-{
+public class Tahtikolmio {
   /**
    * main
    *
@@ -45,12 +50,10 @@ public class Tahtikolmio
         }
 
         validInput = true;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
     PrintCharLines('*', rowsToRepeat);
   }

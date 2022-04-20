@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  SyotteenTarkistaminen
- * Creation Date:  2.3.2007
+ * Title of File: SyotteenTarkistaminen
+ *
+ * Creation Date: 2.3.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,12 +19,15 @@ import java.io.*;
 
 
 /**
- * <p>Title: SyotteenTarkistaminen</p>
+ * <p>
+ * Title: SyotteenTarkistaminen
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class SyotteenTarkistaminen
-{
+public class SyotteenTarkistaminen {
   /**
    * main
    *
@@ -33,7 +38,7 @@ public class SyotteenTarkistaminen
 
     System.out.printf("%nSovellus laskee kymmenen syöttämäsi positiivisen kokonaisluvun summan.%n");
 
-    for (int i=1; i<=10; i++)
+    for (int i = 1; i <= 10; i++)
       sum += lueJaTarkista();
 
     System.out.printf("%nSyöttämiesi lukujen summa on %d.%n", sum);
@@ -60,11 +65,9 @@ public class SyotteenTarkistaminen
           throw new Exception();
 
         validInput = true;
-      }
-      catch (NumberFormatException ex) {
+      } catch (NumberFormatException ex) {
         System.out.printf("Syöte ei ole hyväksyttävä luku.%n");
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Negatiiviset luvut eivät kelpaa.%n");
       }
     }

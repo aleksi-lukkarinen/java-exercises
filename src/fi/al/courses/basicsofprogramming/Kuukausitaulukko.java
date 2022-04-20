@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  Kuukausitaulukko
- * Creation Date:  30.3.2007
+ * Title of File: Kuukausitaulukko
+ *
+ * Creation Date: 30.3.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,13 +19,15 @@ import java.io.*;
 
 
 /**
- * <p>Title: Kuukausitaulukko</p>
+ * <p>
+ * Title: Kuukausitaulukko
+ * </p>
  */
 public class Kuukausitaulukko {
   public static void main(String[] args) {
-    BufferedReader stdin  = new BufferedReader(new InputStreamReader(System.in));
-    String input          = "";
-    String strMonth       = "";
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    String input = "";
+    String strMonth = "";
 
     while (true) {
       System.out.printf("%nSyötä kuukauden numero ['.' lopettaa]: ");
@@ -39,8 +43,7 @@ public class Kuukausitaulukko {
           System.out.printf("Kysymäsi kuukauden nimi: %s.%n", strMonth);
         else
           System.out.printf("Syöttämäsi kuukausinumero oli virheellinen.%n");
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }
@@ -51,9 +54,8 @@ public class Kuukausitaulukko {
 
 
   private static String monthName(int month) {
-    String[] monthNames = {
-            "Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu",
-            "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"};
+    String[] monthNames = { "Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu",
+        "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu" };
 
     if (month < 1 || month > 12)
       return null;

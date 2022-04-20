@@ -1,27 +1,34 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  OnkoJaollinen
- * Creation Date:  2.2.2007
+ * Title of File: OnkoJaollinen
+ *
+ * Creation Date: 2.2.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
 
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
+
+
 /**
- * <p>Title: OnkoJaollinen</p>
+ * <p>
+ * Title: OnkoJaollinen
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class OnkoJaollinen
-{
+public class OnkoJaollinen {
   public static void main(String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
@@ -36,12 +43,10 @@ public class OnkoJaollinen
       try {
         number1 = Long.parseLong(stdin.readLine());
         validInput = true;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
     do {
       validInput = false;
@@ -51,28 +56,25 @@ public class OnkoJaollinen
       try {
         number2 = Long.parseLong(stdin.readLine());
         validInput = true;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
     if (isDivisible(number1, number2)) {
       System.out.print("\n\n1. luku ON jaollinen 2. luvulla.\n");
-    }
-    else {
+    } else {
       System.out.print("\n\n1. luku EI OLE jaollinen 2. luvulla.\n");
     }
   }
 
 
   private static boolean isDivisible(long a, long b) {
-    if (b == 0)               // Mikään luku ei ole jaollinen nollalla
+    if (b == 0) // Mikään luku ei ole jaollinen nollalla
       return false;
-    if (a == 0)               // Nolla on jaollinen kaikilla luvuilla
+    if (a == 0) // Nolla on jaollinen kaikilla luvuilla
       return true;
 
-    return (a % b == 0);      // Onko a!=0 jaollinen b!=0:lla?
+    return (a % b == 0); // Onko a!=0 jaollinen b!=0:lla?
   }
 }

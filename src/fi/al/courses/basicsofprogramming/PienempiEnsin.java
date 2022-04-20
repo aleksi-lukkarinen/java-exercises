@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  PienempiEnsin
- * Creation Date:  2.2.2007
+ * Title of File: PienempiEnsin
+ *
+ * Creation Date: 2.2.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,12 +19,15 @@ import java.io.*;
 
 
 /**
- * <p>Title: PienempiEnsin</p>
+ * <p>
+ * Title: PienempiEnsin
+ * </p>
  *
- * <p>Description: </p>
+ * <p>
+ * Description:
+ * </p>
  */
-public class PienempiEnsin
-{
+public class PienempiEnsin {
   /**
    * main
    *
@@ -42,12 +47,10 @@ public class PienempiEnsin
       try {
         a = Double.parseDouble(stdin.readLine());
         validInput = true;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
     do {
       validInput = false;
@@ -57,12 +60,10 @@ public class PienempiEnsin
       try {
         b = Double.parseDouble(stdin.readLine());
         validInput = true;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
-    }
-    while (!validInput);
+    } while (!validInput);
 
     System.out.printf("%nLuvuista pienempi on %f.%n", min(a, b));
   }

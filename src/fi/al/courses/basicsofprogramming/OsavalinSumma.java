@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  OsavalinSumma
- * Creation Date:  30.3.2007
+ * Title of File: OsavalinSumma
+ *
+ * Creation Date: 30.3.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,16 +19,17 @@ import java.io.*;
 
 
 /**
- * <p>Title: OsavalinSumma</p>
+ * <p>
+ * Title: OsavalinSumma
+ * </p>
  */
-public class OsavalinSumma
-{
+public class OsavalinSumma {
   public static final int MAX = 50;
 
   public static void main(String[] args) {
     int[] luvut = new int[MAX + 1];
-    int a       = 0;
-    int y       = MAX;
+    int a = 0;
+    int y = MAX;
 
     arvoTaulukkooon(luvut);
 
@@ -41,11 +44,9 @@ public class OsavalinSumma
 
     try {
       System.out.printf("%nOsasumma indeksivälillä %d - %d = %d.%n", a, y, osaSumma(luvut, a, y));
-    }
-    catch (ArrayIndexOutOfBoundsException e) {
+    } catch (ArrayIndexOutOfBoundsException e) {
       System.out.println("\n" + e.getMessage() + "\n");
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       System.out.println("\nTuntematon virhe osasummaa laskettaessa.\n");
     }
   }
@@ -70,7 +71,7 @@ public class OsavalinSumma
 
   private static long osaSumma(int[] luvut, int yla, int ala) {
     long sum = 0;
-    int  tmp = 0;
+    int tmp = 0;
 
     if (ala > yla) {
       tmp = ala;
@@ -92,7 +93,7 @@ public class OsavalinSumma
 
 
   private static void taulukonMinimi(int[] luvut) {
-    int minValue      = Integer.MAX_VALUE;
+    int minValue = Integer.MAX_VALUE;
     int minValueIndex = 0;
 
     for (int i = 0; i < luvut.length; i++) {
@@ -102,13 +103,14 @@ public class OsavalinSumma
       }
     }
 
-    System.out.printf("\nTaulukon pienin arvo %d sijaitsee kohdassa %d.\n", minValue, minValueIndex);
+    System.out.printf("\nTaulukon pienin arvo %d sijaitsee kohdassa %d.\n", minValue,
+        minValueIndex);
   }
 
 
   private static void onkoAlkioSamaKuinIndeksi(int[] luvut) {
-    int     cellCount   = 0;
-    String  strCells    = "";
+    int cellCount = 0;
+    String strCells = "";
 
     for (int i = 0; i < luvut.length; i++) {
       if (luvut[i] == i) {
@@ -118,15 +120,15 @@ public class OsavalinSumma
     }
 
     if (cellCount > 0)
-      System.out.printf("\nTaulukossa %d solulla solun indeksi on yhtä suuri kuin sen arvo.\n" +
-              "Kyseisten solujen indeksit ovat:%n%s", cellCount, strCells);
+      System.out.printf("\nTaulukossa %d solulla solun indeksi on yhtä suuri kuin sen arvo.\n"
+          + "Kyseisten solujen indeksit ovat:%n%s", cellCount, strCells);
     else
       System.out.printf("\nTaulukon millään solulla ei ollut arvonaan kyseisen omaa indeksiään.\n");
   }
 
 
   private static int askPartialSumIndex(boolean upper) {
-    BufferedReader stdin  = new BufferedReader(new InputStreamReader(System.in));
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 
     while (true) {
       if (upper)
@@ -136,8 +138,7 @@ public class OsavalinSumma
 
       try {
         return Integer.parseInt(stdin.readLine());
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }

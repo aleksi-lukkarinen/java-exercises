@@ -1,26 +1,30 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  PainoindeksiSanallisesti
- * Creation Date:  2.2.2007
+ * Title of File: PainoindeksiSanallisesti
+ *
+ * Creation Date: 2.2.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
 
+
 import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
-public class PainoindeksiSanallisesti
-{
+
+
+public class PainoindeksiSanallisesti {
   public static void main(String[] args) {
     double bmi = 0;
 
     bmi = BMI(ask4Length() / 100, ask4Weight());
-    System.out.printf("%n%nPainoindeksi on %.2f.%nSanallinen luokitus: %s.%n%n", bmi, verbalBMI(bmi));
+    System.out.printf("%n%nPainoindeksi on %.2f.%nSanallinen luokitus: %s.%n%n", bmi,
+        verbalBMI(bmi));
   }
 
   private static double ask4Length() {

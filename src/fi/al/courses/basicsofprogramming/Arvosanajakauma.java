@@ -1,15 +1,17 @@
 /**************************************************************************************************
  *
- * Course:         The *VERY* Basics of Programming, Spring 2007
+ * Course: The *VERY* Basics of Programming, Spring 2007
  *
- * Participant:    Aleksi Lukkarinen
+ * Participant: Aleksi Lukkarinen
  *
- * Title of File:  Arvosanajakauma
- * Creation Date:  30.3.2007
+ * Title of File: Arvosanajakauma
+ *
+ * Creation Date: 30.3.2007
  *
  **************************************************************************************************/
 
 package fi.al.courses.basicsofprogramming;
+
 
 import java.io.*;
 
@@ -17,20 +19,22 @@ import java.io.*;
 
 
 /**
- * <p>Title: Arvosanajakauma</p>
+ * <p>
+ * Title: Arvosanajakauma
+ * </p>
  */
 public class Arvosanajakauma {
-  private final static String   MSG_END       = "%nOhjelma lopetetaan.%n";
-  private final static int      MAX_STUDENTS  = 50;
-  private final static int      MAX_GRADE     = 5;
+  private final static String MSG_END = "%nOhjelma lopetetaan.%n";
+  private final static int MAX_STUDENTS = 50;
+  private final static int MAX_GRADE = 5;
 
   public static void main(String[] args) {
-    String  strTmp            = "";
-    int     numberOfStudents  = 0;
-    int     studentCount      = 0;
-    int     grade             = 0;
-    int[]   gradeDistribution = new int[MAX_GRADE + 1];
-    int[]   grades;
+    String strTmp = "";
+    int numberOfStudents = 0;
+    int studentCount = 0;
+    int grade = 0;
+    int[] gradeDistribution = new int[MAX_GRADE + 1];
+    int[] grades;
 
     // Kysytään oppilasmäärä
     numberOfStudents = askNumberOfStudents(MAX_STUDENTS);
@@ -78,9 +82,9 @@ public class Arvosanajakauma {
 
 
   private static int askGradeForStudent(int student_num) {
-    BufferedReader stdin  = new BufferedReader(new InputStreamReader(System.in));
-    String input          = "";
-    int grade             = 0;
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    String input = "";
+    int grade = 0;
 
     while (true) {
       System.out.printf("%nSyötä %d. oppilaan arvosana ['.' lopettaa]: ", student_num);
@@ -97,8 +101,7 @@ public class Arvosanajakauma {
           throw new Exception();
 
         return grade;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }
@@ -106,9 +109,9 @@ public class Arvosanajakauma {
 
 
   private static int askNumberOfStudents(int max) {
-    BufferedReader stdin  = new BufferedReader(new InputStreamReader(System.in));
-    String input          = "";
-    int numberOfstudents  = 0;
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    String input = "";
+    int numberOfstudents = 0;
 
     while (true) {
       System.out.printf("%nSyötä oppilasmäärä [1 - %d, '.' lopettaa]: ", max);
@@ -125,8 +128,7 @@ public class Arvosanajakauma {
           throw new Exception();
 
         return numberOfstudents;
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }
