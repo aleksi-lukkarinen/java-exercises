@@ -1,5 +1,4 @@
-/**************************************************************************************************
- *
+/**
  * Course: The *VERY* Basics of Programming, Spring 2007
  *
  * Participant: Aleksi Lukkarinen
@@ -7,28 +6,42 @@
  * Title of File: Arvosanajakauma
  *
  * Creation Date: 30.3.2007
- *
- **************************************************************************************************/
+ */
 
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
 
 /**
  * <p>
- * Title: Arvosanajakauma
+ * This application presents the distribution of course grades.
  * </p>
  */
-public class Arvosanajakauma {
-  private final static String MSG_END = "%nOhjelma lopetetaan.%n";
-  private final static int MAX_STUDENTS = 50;
-  private final static int MAX_GRADE = 5;
+public final class Arvosanajakauma {
+  /**  */
+  private static final String MSG_END = "%nOhjelma lopetetaan.%n";
 
-  public static void main(String[] args) {
+  /**  */
+  private static final int MAX_STUDENTS = 50;
+
+  /**  */
+  private static final int MAX_GRADE = 5;
+
+  private Arvosanajakauma() {
+    // NOT TO BE CALLED
+  }
+
+  /**
+   *
+   *
+   * @param args
+   */
+  public static void main(final String[] args) {
     String strTmp = "";
     int numberOfStudents = 0;
     int studentCount = 0;
@@ -62,16 +75,19 @@ public class Arvosanajakauma {
     // Käsitellään mahdollisesti syötetyt arvosanat
     if (studentCount > 0) {
       // Luodaan arvosanajakauma
-      for (int i = 0; i < studentCount; i++)
+      for (int i = 0; i < studentCount; i++) {
         gradeDistribution[grades[i]]++;
+      }
 
       // Tulostetaan arvosanajakauma
-      System.out.printf("%nSyöttämäsi arvosanat jakautuvat arvosana-asteikolle seuraavasti:%n");
+      String heading = "\nSyöttämäsi arvosanat jakautuvat arvosana-asteikolle seuraavasti:";
+      System.out.println(heading);
       for (int i = 0; i <= MAX_GRADE; i++) {
         // Luodaan tähtimerkkijono
         strTmp = "";
-        for (int j = 0; j < gradeDistribution[i]; j++)
+        for (int j = 0; j < gradeDistribution[i]; j++) {
           strTmp += "*";
+        }
 
         // Tulostetaan arvosanaa vastaava rivi
         System.out.printf("%d: %s%n", i, strTmp);
@@ -81,34 +97,36 @@ public class Arvosanajakauma {
 
 
 
-  private static int askGradeForStudent(int student_num) {
+  private static int askGradeForStudent(final int studentNum) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String input = "";
     int grade = 0;
 
     while (true) {
-      System.out.printf("%nSyötä %d. oppilaan arvosana ['.' lopettaa]: ", student_num);
+      final String prompt = "%nSyötä %d. oppilaan arvosana ['.' lopettaa]: ";
+      System.out.printf(prompt, studentNum);
 
       try {
         input = stdin.readLine().trim();
-
-        if (input.equals("."))
+        if (input.equals(".")) {
           return -1;
+        }
 
         grade = Integer.parseInt(input);
-
-        if (grade < 0 || grade > MAX_GRADE)
+        if (grade < 0 || grade > MAX_GRADE) {
           throw new Exception();
+        }
 
         return grade;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }
   }
 
 
-  private static int askNumberOfStudents(int max) {
+  private static int askNumberOfStudents(final int max) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String input = "";
     int numberOfstudents = 0;
@@ -118,17 +136,18 @@ public class Arvosanajakauma {
 
       try {
         input = stdin.readLine().trim();
-
-        if (input.equals("."))
+        if (input.equals(".")) {
           return -1;
+        }
 
         numberOfstudents = Integer.parseInt(input);
-
-        if (numberOfstudents < 1 || numberOfstudents > max)
+        if (numberOfstudents < 1 || numberOfstudents > max) {
           throw new Exception();
+        }
 
         return numberOfstudents;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }

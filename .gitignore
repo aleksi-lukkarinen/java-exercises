@@ -14,10 +14,15 @@ out
 
 # Package Files #
 *.jar
+!lib/*.jar
 *.war
+!lib/*.war
 *.nar
+!lib/*.nar
 *.ear
+!lib/*.ear
 *.zip
+!lib/*.zip
 *.tar.gz
 *.rar
 
