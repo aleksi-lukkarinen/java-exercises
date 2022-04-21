@@ -1,6 +1,6 @@
-# java-exercises
+# Old Small Java Exercises
 
-Old small programming exercises in Java.
+Old small Java programming exercises roughly from the time before Java Development Kit 8.
 
 
 ## Development
