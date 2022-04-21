@@ -13,8 +13,12 @@ package fi.al.courses.basicsofprogramming;
 
 
 
-public class HeiMaailma {
-  public static void main(String[] args) {
+public final class HeiMaailma {
+  private HeiMaailma() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     System.out.println("Heipä hei koko maailma!");
   }
 }

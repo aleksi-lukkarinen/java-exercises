@@ -18,8 +18,12 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class VaihteluVirkistaa {
-  public static void main(String[] args) {
+public final class VaihteluVirkistaa {
+  private VaihteluVirkistaa() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     double eka = 0.0;
     double toka = 0.0;
     double tmp = 0.0;

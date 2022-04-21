@@ -16,14 +16,21 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class IntegerDouble {
-  public static void main(String[] args) {
+public final class IntegerDouble {
+  private IntegerDouble() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     int intLuku;
     double doubleLuku;
+
     System.out.print("Anna kokonaisluku : ");
     intLuku = Oma.lueInt();
+
     System.out.print("Anna liukuluku : ");
     doubleLuku = Oma.lueDouble();
+
     System.out.println("Lukujen tulo = " + intLuku * doubleLuku);
   }
 }

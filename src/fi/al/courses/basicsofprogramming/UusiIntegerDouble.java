@@ -11,13 +11,17 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 
 
 
-public class UusiIntegerDouble {
-  public static void main(String[] args) {
+public final class UusiIntegerDouble {
+  private UusiIntegerDouble() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     String numeroJono;
     int intLuku;
     double doubleLuku;

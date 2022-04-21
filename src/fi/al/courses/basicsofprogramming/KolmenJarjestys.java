@@ -28,8 +28,12 @@ import java.io.InputStreamReader;
  * Description:
  * </p>
  */
-public class KolmenJarjestys {
-  public static void main(String[] args) {
+public final class KolmenJarjestys {
+  private KolmenJarjestys() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
     long number1 = 0;
@@ -46,7 +50,8 @@ public class KolmenJarjestys {
       try {
         number1 = Long.parseLong(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
     } while (!validInput);
@@ -59,7 +64,8 @@ public class KolmenJarjestys {
       try {
         number2 = Long.parseLong(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
     } while (!validInput);
@@ -72,7 +78,8 @@ public class KolmenJarjestys {
       try {
         number3 = Long.parseLong(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
     } while (!validInput);
@@ -83,30 +90,39 @@ public class KolmenJarjestys {
   }
 
 
-  private static void printInAscendingOrder(long a, long b, long c) {
+  private static void printInAscendingOrder(final long a, final long b, final long c) {
+
     String strOut = "Nouseva järjestys: ";
 
     if (a <= b && a <= c) { // a pienin
       strOut += a + ", ";
 
-      if (b < c)
+      if (b < c) {
         strOut += b + ", " + c;
-      else
+      }
+      else {
         strOut += c + ", " + b;
-    } else if (b <= a && b <= c) { // b pienin
+      }
+    }
+    else if (b <= a && b <= c) { // b pienin
       strOut += b + ", ";
 
-      if (a < c)
+      if (a < c) {
         strOut += a + ", " + c;
-      else
+      }
+      else {
         strOut += c + ", " + a;
-    } else { // c pienin
+      }
+    }
+    else { // c pienin
       strOut += c + ", ";
 
-      if (a < b)
+      if (a < b) {
         strOut += a + ", " + b;
-      else
+      }
+      else {
         strOut += b + ", " + a;
+      }
     }
 
     strOut += ".\n";
@@ -114,30 +130,38 @@ public class KolmenJarjestys {
   }
 
 
-  private static void printInDescendingOrder(long a, long b, long c) {
+  private static void printInDescendingOrder(final long a, final long b, final long c) {
     String strOut = "Laskeva järjestys: ";
 
     if (a >= b && a >= c) { // a suurin
       strOut += a + ", ";
 
-      if (b > c)
+      if (b > c) {
         strOut += b + ", " + c;
-      else
+      }
+      else {
         strOut += c + ", " + b;
-    } else if (b >= a && b >= c) { // b suurin
+      }
+    }
+    else if (b >= a && b >= c) { // b suurin
       strOut += b + ", ";
 
-      if (a > c)
+      if (a > c) {
         strOut += a + ", " + c;
-      else
+      }
+      else {
         strOut += c + ", " + a;
-    } else { // c suurin
+      }
+    }
+    else { // c suurin
       strOut += c + ", ";
 
-      if (a > b)
+      if (a > b) {
         strOut += a + ", " + b;
-      else
+      }
+      else {
         strOut += b + ", " + a;
+      }
     }
 
     strOut += ".\n";

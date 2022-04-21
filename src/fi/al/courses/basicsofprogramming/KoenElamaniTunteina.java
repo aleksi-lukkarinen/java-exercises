@@ -13,13 +13,13 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
 
 /**
- *
  * <p>
  * Title: KoenElamaniTunteina
  * </p>
@@ -35,17 +35,23 @@ import java.io.*;
  * @author Aleksi Lukkarinen
  * @version 1.0
  */
-public class KoenElamaniTunteina {
+public final class KoenElamaniTunteina {
+  private KoenElamaniTunteina() {
+    // NOT TO BE CALLED
+  }
+
   /**
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     String strOutput = "";
-    Time t1, t2, tDiff;
+    Time t1;
+    Time t2;
+    Time tDiff;
 
-    t1 = ask4Time(1);
-    t2 = ask4Time(2);
+    t1 = askForTime(1);
+    t2 = askForTime(2);
     tDiff = t1.difference(t2);
 
     strOutput = "%n1. ajankohta: %d h %d min %d sek. (= %d sekuntia)%n"
@@ -65,15 +71,13 @@ public class KoenElamaniTunteina {
    * @param count long
    * @return Time
    */
-  private static Time ask4Time(long count) {
+  private static Time askForTime(final long count) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String[] splittedTime = null;
     boolean validInput = false;
-    long h = 0, m = 0, s = 0;
-
-    if (count < 1) {
-      count = 1;
-    }
+    long h = 0;
+    long m = 0;
+    long s = 0;
 
     do {
       System.out.printf("%nSyötä %d. ajankohta muodossa H.M.S: ", count);
@@ -83,7 +87,8 @@ public class KoenElamaniTunteina {
 
         if (splittedTime.length != 3) {
           throw new Exception();
-        } else if (splittedTime[0].length() > 2 || splittedTime[0].length() < 1
+        }
+        else if (splittedTime[0].length() > 2 || splittedTime[0].length() < 1
             || splittedTime[1].length() > 2 || splittedTime[1].length() < 1
             || splittedTime[2].length() > 2 || splittedTime[2].length() < 1) {
           throw new Exception();
@@ -98,7 +103,8 @@ public class KoenElamaniTunteina {
         }
 
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
@@ -118,8 +124,9 @@ public class KoenElamaniTunteina {
    * @return long Time difference as seconds.
    */
   @SuppressWarnings("unused")
-  private static long timeDiff(long hours1, long minutes1, long seconds1, long hours2,
-      long minutes2, long seconds2) {
+  private static long timeDiff(final long hours1, final long minutes1, final long seconds1,
+      final long hours2, final long minutes2, final long seconds2) {
+
     long s1 = toSeconds(hours1, minutes1, seconds1);
     long s2 = toSeconds(hours2, minutes2, seconds2);
     long stmp = 0;
@@ -141,8 +148,11 @@ public class KoenElamaniTunteina {
    * @return Time
    */
   @SuppressWarnings("unused")
-  private static Time timeDiff(Time t1, Time t2) {
-    long sDiff = 0, mDiff = 0, hDiff = 0, sTmp = 0;
+  private static Time timeDiff(final Time t1, final Time t2) {
+    long sDiff = 0;
+    long mDiff = 0;
+    long hDiff = 0;
+    long sTmp = 0;
     long s1 = t1.asSeconds();
     long s2 = t2.asSeconds();
 
@@ -170,7 +180,7 @@ public class KoenElamaniTunteina {
    * @param seconds long
    * @return long
    */
-  private static long toSeconds(long hours, long minutes, long seconds) {
+  private static long toSeconds(final long hours, final long minutes, final long seconds) {
     return seconds + minutes * Time.SECONDS_IN_MINUTE + hours * Time.SECONDS_IN_HOUR;
   }
 }
@@ -195,9 +205,9 @@ public class KoenElamaniTunteina {
  * @version 1.0
  */
 class Time implements Cloneable {
-  private long m_Hours;
-  private long m_Minutes;
-  private long m_Seconds;
+  private long hours;
+  private long minutes;
+  private long seconds;
 
 
   /**
@@ -223,14 +233,14 @@ class Time implements Cloneable {
    * @param m long
    * @param s long
    */
-  public Time(long h, long m, long s) {
+  public Time(final long h, final long m, final long s) {
     if (h < 0 || h > 10000 || m < 0 || m > 59 || s < 0 || s > 59) {
       throw new IllegalArgumentException();
     }
 
-    m_Hours = h;
-    m_Minutes = m;
-    m_Seconds = s;
+    hours = h;
+    minutes = m;
+    seconds = s;
   }
 
 
@@ -239,7 +249,7 @@ class Time implements Cloneable {
    * @return long
    */
   public long seconds() {
-    return m_Seconds;
+    return seconds;
   }
 
 
@@ -248,7 +258,7 @@ class Time implements Cloneable {
    * @return long
    */
   public long minutes() {
-    return m_Minutes;
+    return minutes;
   }
 
 
@@ -257,7 +267,7 @@ class Time implements Cloneable {
    * @return long
    */
   public long hours() {
-    return m_Hours;
+    return hours;
   }
 
 
@@ -266,7 +276,7 @@ class Time implements Cloneable {
    * @return long
    */
   public long asSeconds() {
-    return m_Seconds + m_Minutes * SECONDS_IN_MINUTE + m_Hours * SECONDS_IN_HOUR;
+    return seconds + minutes * SECONDS_IN_MINUTE + hours * SECONDS_IN_HOUR;
   }
 
 
@@ -275,8 +285,11 @@ class Time implements Cloneable {
    * @param t Time
    * @return Time
    */
-  public Time difference(Time t) {
-    long sDiff = 0, mDiff = 0, hDiff = 0, sTmp = 0;
+  public Time difference(final Time t) {
+    long sDiff = 0;
+    long mDiff = 0;
+    long hDiff = 0;
+    long sTmp = 0;
     long s1 = this.asSeconds();
     long s2 = t.asSeconds();
 
@@ -301,9 +314,9 @@ class Time implements Cloneable {
   public Time clone() throws CloneNotSupportedException {
     Time t = (Time) super.clone();
 
-    t.m_Hours = m_Hours;
-    t.m_Minutes = m_Minutes;
-    t.m_Seconds = m_Seconds;
+    t.hours = hours;
+    t.minutes = minutes;
+    t.seconds = seconds;
 
     return t;
   }
@@ -314,6 +327,6 @@ class Time implements Cloneable {
    * @return String
    */
   public String toString() {
-    return "Aika: " + m_Hours + "." + m_Minutes + "." + m_Seconds;
+    return "Aika: " + hours + "." + minutes + "." + seconds;
   }
 }

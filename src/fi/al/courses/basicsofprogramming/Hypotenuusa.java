@@ -13,14 +13,17 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.lang.Math;
 import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
 
-public class Hypotenuusa {
-  public static void main(String[] args) {
+public final class Hypotenuusa {
+  private Hypotenuusa() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     double eka = 0.0;
     double toka = 0.0;
 

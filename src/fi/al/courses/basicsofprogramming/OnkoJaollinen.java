@@ -28,8 +28,12 @@ import java.io.InputStreamReader;
  * Description:
  * </p>
  */
-public class OnkoJaollinen {
-  public static void main(String[] args) {
+public final class OnkoJaollinen {
+  private OnkoJaollinen() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
     long number1 = 0;
@@ -43,7 +47,8 @@ public class OnkoJaollinen {
       try {
         number1 = Long.parseLong(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
     } while (!validInput);
@@ -56,24 +61,29 @@ public class OnkoJaollinen {
       try {
         number2 = Long.parseLong(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.println("Virheellinen syöte.\n");
       }
     } while (!validInput);
 
     if (isDivisible(number1, number2)) {
       System.out.print("\n\n1. luku ON jaollinen 2. luvulla.\n");
-    } else {
+    }
+    else {
       System.out.print("\n\n1. luku EI OLE jaollinen 2. luvulla.\n");
     }
   }
 
 
-  private static boolean isDivisible(long a, long b) {
-    if (b == 0) // Mikään luku ei ole jaollinen nollalla
+  private static boolean isDivisible(final long a, final long b) {
+    if (b == 0) { // Mikään luku ei ole jaollinen nollalla
       return false;
-    if (a == 0) // Nolla on jaollinen kaikilla luvuilla
+    }
+
+    if (a == 0) { // Nolla on jaollinen kaikilla luvuilla
       return true;
+    }
 
     return (a % b == 0); // Onko a!=0 jaollinen b!=0:lla?
   }

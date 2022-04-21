@@ -13,7 +13,8 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
@@ -23,10 +24,14 @@ import java.io.*;
  * Title: OsavalinSumma
  * </p>
  */
-public class OsavalinSumma {
-  public static final int MAX = 50;
+public final class OsavalinSumma {
+  private static final int MAX = 50;
 
-  public static void main(String[] args) {
+  private OsavalinSumma() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     int[] luvut = new int[MAX + 1];
     int a = 0;
     int y = MAX;
@@ -44,23 +49,25 @@ public class OsavalinSumma {
 
     try {
       System.out.printf("%nOsasumma indeksivälillä %d - %d = %d.%n", a, y, osaSumma(luvut, a, y));
-    } catch (ArrayIndexOutOfBoundsException e) {
+    }
+    catch (ArrayIndexOutOfBoundsException e) {
       System.out.println("\n" + e.getMessage() + "\n");
-    } catch (Exception e) {
+    }
+    catch (Exception e) {
       System.out.println("\nTuntematon virhe osasummaa laskettaessa.\n");
     }
   }
 
 
 
-  private static void arvoTaulukkooon(int[] luvut) {
+  private static void arvoTaulukkooon(final int[] luvut) {
     for (int i = 0; i < luvut.length; i++) {
       luvut[i] = (int) (java.lang.Math.random() * (MAX + 1));
     }
   }
 
 
-  private static void tulostaTaulukko(int[] luvut) {
+  private static void tulostaTaulukko(final int[] luvut) {
     System.out.println("\nTaulukon luvut ovat:");
 
     for (int i = 0; i < luvut.length; i++) {
@@ -69,22 +76,25 @@ public class OsavalinSumma {
   }
 
 
-  private static long osaSumma(int[] luvut, int yla, int ala) {
+  private static long osaSumma(final int[] luvut, final int yla, final int ala) {
     long sum = 0;
-    int tmp = 0;
 
+    int y = yla;
+    int a = ala;
     if (ala > yla) {
-      tmp = ala;
-      ala = yla;
-      yla = tmp;
+      y = ala;
+      a = yla;
     }
 
-    if (ala < 0)
+    if (a < 0) {
       throw new ArrayIndexOutOfBoundsException("Osasumman alaindeksi on liian pieni.");
-    if (yla >= luvut.length)
-      throw new ArrayIndexOutOfBoundsException("Osasumman yläindeksi on liian suuri.");
+    }
 
-    for (int i = ala; i <= yla; i++) {
+    if (y >= luvut.length) {
+      throw new ArrayIndexOutOfBoundsException("Osasumman yläindeksi on liian suuri.");
+    }
+
+    for (int i = a; i <= y; i++) {
       sum += luvut[i];
     }
 
@@ -92,7 +102,7 @@ public class OsavalinSumma {
   }
 
 
-  private static void taulukonMinimi(int[] luvut) {
+  private static void taulukonMinimi(final int[] luvut) {
     int minValue = Integer.MAX_VALUE;
     int minValueIndex = 0;
 
@@ -108,7 +118,7 @@ public class OsavalinSumma {
   }
 
 
-  private static void onkoAlkioSamaKuinIndeksi(int[] luvut) {
+  private static void onkoAlkioSamaKuinIndeksi(final int[] luvut) {
     int cellCount = 0;
     String strCells = "";
 
@@ -119,26 +129,31 @@ public class OsavalinSumma {
       }
     }
 
-    if (cellCount > 0)
+    if (cellCount > 0) {
       System.out.printf("\nTaulukossa %d solulla solun indeksi on yhtä suuri kuin sen arvo.\n"
           + "Kyseisten solujen indeksit ovat:%n%s", cellCount, strCells);
-    else
+    }
+    else {
       System.out.printf("\nTaulukon millään solulla ei ollut arvonaan kyseisen omaa indeksiään.\n");
+    }
   }
 
 
-  private static int askPartialSumIndex(boolean upper) {
+  private static int askPartialSumIndex(final boolean upper) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 
     while (true) {
-      if (upper)
+      if (upper) {
         System.out.printf("%nSyötä osasumman nollakantainen yläindeksi: ");
-      else
+      }
+      else {
         System.out.printf("%nSyötä osasumman nollakantainen alaindeksi: ");
+      }
 
       try {
         return Integer.parseInt(stdin.readLine());
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }

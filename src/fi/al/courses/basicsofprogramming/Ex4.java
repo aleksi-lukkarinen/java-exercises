@@ -27,13 +27,17 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
  * Description: Excercise 4
  * </p>
  */
-public class Ex4 {
-  public static void main(String[] args) {
+public final class Ex4 {
+  private Ex4() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     long number = 0;
 
     System.out.print("Arvaa kokonaisluku: ");
     number = Oma.lueInt();
 
-    System.out.printf("%nMinun lukuni on %s, hävisit niukasti.%n", ++number);
+    System.out.printf("%nMinun lukuni on %s, hävisit niukasti.%n", number + 1);
   }
 }

@@ -18,7 +18,11 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class KolmenKeskiarvo {
+public final class KolmenKeskiarvo {
+  private KolmenKeskiarvo() {
+    // NOT TO BE CALLED
+  }
+
   /**
    * Main method. <br />
    * <br />
@@ -26,7 +30,7 @@ public class KolmenKeskiarvo {
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     long first = 0;
     long second = 0;
     long third = 0;

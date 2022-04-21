@@ -24,8 +24,12 @@ package fi.al.courses.basicsofprogramming;
  * Description:
  * </p>
  */
-public class SanallinenArvosana {
-  public static void main(String[] args) {
+public final class SanallinenArvosana {
+  private SanallinenArvosana() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     System.out.printf("%nNumeeristen ja sanallisten arvosanojen vastaavuus:%n");
 
     for (int i = -1; i <= 6; i++) {
@@ -36,7 +40,7 @@ public class SanallinenArvosana {
   }
 
 
-  private static void printVerbalGrade(int grade) {
+  private static void printVerbalGrade(final int grade) {
     String verbalGrade = "<<Virheellinen parametri>>";
 
     switch (grade) {

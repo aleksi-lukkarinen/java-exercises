@@ -13,7 +13,8 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
@@ -27,15 +28,21 @@ import java.io.*;
  * Description:
  * </p>
  */
-public class KeskiarvonMekinAnsaitsemme {
+public final class KeskiarvonMekinAnsaitsemme {
+  private KeskiarvonMekinAnsaitsemme() {
+    // NOT TO BE CALLED
+  }
+
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
-    double sumPositive = 0.0, sumNegative = 0.0;
-    long countPositive = 0, countNegative = 0;
+  public static void main(final String[] args) {
+    double sumPositive = 0.0;
+    double sumNegative = 0.0;
+    long countPositive = 0;
+    long countNegative = 0;
     double input = 0.0;
 
     System.out.println(
@@ -46,7 +53,8 @@ public class KeskiarvonMekinAnsaitsemme {
       if (input > 0.0) {
         sumPositive += input;
         countPositive++;
-      } else {
+      }
+      else {
         sumNegative += input;
         countNegative++;
       }
@@ -54,17 +62,21 @@ public class KeskiarvonMekinAnsaitsemme {
       input = readNumber();
     }
 
-    if (countPositive > 0 && countNegative > 0)
+    if (countPositive > 0 && countNegative > 0) {
       System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive)
           + " ja negatiivisten " + (sumNegative / countNegative) + ".");
-    else if (countPositive > 0 && countNegative == 0)
+    }
+    else if (countPositive > 0 && countNegative == 0) {
       System.out.println("\nPositiivisten lukujen keskiarvo on " + (sumPositive / countPositive)
           + ", mutta negatiivisia lukuja ei syötetty.");
-    else if (countPositive == 0 && countNegative > 0)
+    }
+    else if (countPositive == 0 && countNegative > 0) {
       System.out.println("\nNegatiivisten lukujen keskiarvo on " + (sumNegative / countNegative)
           + ", mutta positiivisia lukuja ei syötetty.");
-    else
+    }
+    else {
       System.out.println("\nYhtään lukua ei syötetty.");
+    }
   }
 
 
@@ -83,19 +95,22 @@ public class KeskiarvonMekinAnsaitsemme {
         // muunnoksessa nollaksi, se on liian pieni ja siksi hylätään.
         strInput = stdin.readLine().trim();
         dblInput = Double.parseDouble(strInput);
-        if (dblInput == 0.0 && !strInput.equals("0"))
+        if (dblInput == 0.0 && !strInput.equals("0")) {
           throw new Exception();
+        }
 
         validInput = true; // Kaikki kunnossa -> nostetaan merkkilippu
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
 
 
     // Jos käyttäjä syötti "puhtaan" nollan, palautetaan nolla - muutoin palautetaan syötetty luku.
-    if (strInput == "0")
+    if (strInput == "0") {
       return 0.0;
+    }
 
     return dblInput;
   }

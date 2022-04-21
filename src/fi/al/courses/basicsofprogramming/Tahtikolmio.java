@@ -27,13 +27,17 @@ import java.io.*;
  * Description:
  * </p>
  */
-public class Tahtikolmio {
+public final class Tahtikolmio {
+  private Tahtikolmio() {
+    // NOT TO BE CALLED
+  }
+
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
     long rowsToRepeat = 0;
@@ -50,16 +54,18 @@ public class Tahtikolmio {
         }
 
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
 
-    PrintCharLines('*', rowsToRepeat);
+    printCharLines('*', rowsToRepeat);
   }
 
 
-  private static void PrintCharLines(char charToRepeat, long rowsToRepeat) {
+  private static void printCharLines(final char charToRepeat, final long rowsToRepeat) {
+
     long charsPerRow = 0;
 
     for (long i = 0; i < rowsToRepeat; i++) {

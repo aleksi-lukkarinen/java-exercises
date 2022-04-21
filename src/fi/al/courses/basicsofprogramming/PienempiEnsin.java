@@ -27,13 +27,17 @@ import java.io.*;
  * Description:
  * </p>
  */
-public class PienempiEnsin {
+public final class PienempiEnsin {
+  private PienempiEnsin() {
+    // NOT TO BE CALLED
+  }
+
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
     double a = 0;
@@ -47,7 +51,8 @@ public class PienempiEnsin {
       try {
         a = Double.parseDouble(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
@@ -60,7 +65,8 @@ public class PienempiEnsin {
       try {
         b = Double.parseDouble(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
@@ -69,9 +75,10 @@ public class PienempiEnsin {
   }
 
 
-  private static double min(double a, double b) {
-    if (a < b)
+  private static double min(final double a, final double b) {
+    if (a < b) {
       return a;
+    }
 
     return b;
   }

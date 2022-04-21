@@ -18,7 +18,11 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class PainoIndeksi {
+public final class PainoIndeksi {
+  private PainoIndeksi() {
+    // NOT TO BE CALLED
+  }
+
   /**
    * Main method. <br />
    * <br />
@@ -26,7 +30,7 @@ public class PainoIndeksi {
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     double length = 0;
     double weight = 0;
 
@@ -36,11 +40,11 @@ public class PainoIndeksi {
     System.out.print("Paino: ");
     weight = Oma.lueDouble();
 
-    System.out.printf("%nPainoindeksi on %.2f.%n", BMI(length / 100, weight));
+    System.out.printf("%nPainoindeksi on %.2f.%n", bmi(length / 100, weight));
   }
 
 
-  private static double BMI(double length, double weight) {
+  private static double bmi(final double length, final double weight) {
     return weight / (length * length);
   }
 }

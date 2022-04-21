@@ -18,28 +18,32 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class PainoindeksiMetodeina {
-  public static void main(String[] args) {
+public final class PainoindeksiMetodeina {
+  private PainoindeksiMetodeina() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     double length = 0;
     double weight = 0;
 
-    length = ask4Length();
-    weight = ask4Weight();
+    length = askForLength();
+    weight = askForWeight();
 
-    System.out.printf("%nPainoindeksi on %.2f.%n", BMI(length / 100, weight));
+    System.out.printf("%nPainoindeksi on %.2f.%n", bmi(length / 100, weight));
   }
 
-  private static double ask4Length() {
+  private static double askForLength() {
     System.out.printf("%nPituus:%n");
     return Oma.lueDouble();
   }
 
-  private static double ask4Weight() {
+  private static double askForWeight() {
     System.out.printf("%nPaino:%n");
     return Oma.lueDouble();
   }
 
-  private static double BMI(double length, double weight) {
+  private static double bmi(final double length, final double weight) {
     return weight / (length * length);
   }
 }

@@ -28,8 +28,12 @@ import java.io.InputStreamReader;
  * Description:
  * </p>
  */
-public class KahdenJarjestys {
-  public static void main(String[] args) {
+public final class KahdenJarjestys {
+  private KahdenJarjestys() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;
     long number1 = 0;
@@ -43,7 +47,8 @@ public class KahdenJarjestys {
       try {
         number1 = Integer.parseInt(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
@@ -56,7 +61,8 @@ public class KahdenJarjestys {
       try {
         number2 = Integer.parseInt(stdin.readLine());
         validInput = true;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("%nVirheellinen syöte.%n");
       }
     } while (!validInput);
@@ -65,7 +71,7 @@ public class KahdenJarjestys {
   }
 
 
-  private static String orderOfMagnitude(long a, long b) {
+  private static String orderOfMagnitude(final long a, final long b) {
     if (a < b) {
       return "Ensimmäinen luku on pienempi.";
     }

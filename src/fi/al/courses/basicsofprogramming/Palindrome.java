@@ -13,7 +13,9 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import fi.al.courses.basicsofprogramming.utils.ALException;
 
 
@@ -28,13 +30,13 @@ import fi.al.courses.basicsofprogramming.utils.ALException;
  * Description:
  * </p>
  */
-public class Palindrome {
+public final class Palindrome {
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     String candidate = "";
 
     // Aloitusviesti
@@ -45,10 +47,13 @@ public class Palindrome {
     candidate = readAndCheck();
     while (candidate != null) {
       System.out.printf("Ehdokas: %s%n", candidate);
-      if (isPalindrome(candidate))
+
+      if (isPalindrome(candidate)) {
         System.out.printf("Tulos: Ehdokas on palindromi.%n");
-      else
+      }
+      else {
         System.out.printf("Tulos: Ehdokas ei ole palindromi.%n");
+      }
 
       candidate = readAndCheck();
     }
@@ -62,7 +67,8 @@ public class Palindrome {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String input = "";
     int charCounter = 0;
-    char[] inputChars, candidate;
+    char[] inputChars;
+    char[] candidate;
 
     // Luetaan käyttäjältä merkkijonoja, kunnes hän syöttää
     // joko kelvollisen ehdokkaan tai pisteen lopetuksen merkiksi.
@@ -73,16 +79,19 @@ public class Palindrome {
         input = stdin.readLine().trim();
 
         // Jos syötettiin piste, ei tarkastella syötettä enempää, vaan lopetetaan
-        if (input.equals("."))
+        if (input.equals(".")) {
           return null;
+        }
 
         // Tyhjiä merkkijonoja ei hyväksytä
-        if (input.equals(""))
+        if (input.equals("")) {
           throw new ALException("Virheellinen syöte - tyhjiä merkkijonoja ei hyväksytä.");
+        }
 
         // Tyhjiä merkkijonoja ei hyväksytä
-        if (input.length() < 3)
+        if (input.length() < 3) {
           throw new ALException("Virheellinen syöte - merkkijonon vähimmäispituus on 3 merkkiä.");
+        }
 
         // Käydään ehdokasmerkkijono läpi merkki merkiltä muodostaen testausta
         // varten uusi vain sallittuja merkkejä sisältävä merkkijono. Jos
@@ -92,28 +101,35 @@ public class Palindrome {
         charCounter = 0;
         for (char c : inputChars) {
           // Hypätään tyhjän tilan yli
-          if (Character.isWhitespace(c))
+          if (Character.isWhitespace(c)) {
             continue;
+          }
 
           // Jos kyseessä on merkki, tallennetaan se uutta merkkijonoa edustavaan
           // taulukkoon pieneksi kirjaimeksi (jos mahdollista) muuntaen.
-          if (Character.isLetter(c))
+          if (Character.isLetter(c)) {
             candidate[charCounter++] = Character.toLowerCase(c);
-          else
+          }
+          else {
             throw new ALException("Virheellinen syöte - sallittuja merkkejä ovat vain kirjaimet.");
+          }
         }
 
         // Palautetaan uusi merkkijono mahdollisuuksien mukaan pieniksi kirjaimiksi muunnettuna
         return new String(candidate).substring(0, charCounter);
-      } catch (ALException ex) {
+      }
+      catch (ALException ex) {
         // Käsitellään itse luodut poikkeukset
         String msg = ex.getMessage();
 
-        if (msg != null)
+        if (msg != null) {
           System.out.printf("%s%n", msg);
-        else
+        }
+        else {
           System.out.printf("Virheellinen syöte.%n");
-      } catch (Exception ex) {
+        }
+      }
+      catch (Exception ex) {
         // Käsitellään Javan luomat poikkeukset
         System.out.printf("Virheellinen syöte.%n");
       }
@@ -122,15 +138,16 @@ public class Palindrome {
 
 
 
-  private static boolean isPalindrome(String candidate) {
+  private static boolean isPalindrome(final String candidate) {
     char[] tbl = candidate.toCharArray();
     int b = 0;
     int e = tbl.length - 1;
 
     // Tarkistetaan parametrina annetun merkkijonon palindromius
     while (b <= e) {
-      if (tbl[b] != tbl[e])
+      if (tbl[b] != tbl[e]) {
         return false;
+      }
 
       b++;
       e--;

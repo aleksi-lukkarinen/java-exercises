@@ -2,98 +2,99 @@ package fi.al.courses.basicsofprogramming.utils;
 
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 /**
  * Title: Luokka tietojen syöttämiseen
+ *
  * @author Simo Silander
  * @version 1.0
  */
 
-public class Oma
-{
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+public final class Oma {
+  private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public synchronized static int lueInt() {
-        int luku = 0;
-        String lukuStr;
-        boolean ok;
+  private Oma() {
+    // NOT TO BE CALLED
+  }
 
-        do {
-            ok = true;
-            try {
-                lukuStr = br.readLine();
-                luku = Integer.parseInt(lukuStr);
-            }
-            catch (Exception e) {
-                System.out.println("Virheellinen syöte, anna uudestaan");
-                ok = false;
-            }
-        }
-        while (!ok);
-        return luku;
-    }
+  public static synchronized int lueInt() {
+    int luku = 0;
+    String lukuStr;
+    boolean ok;
 
-
-    public synchronized static double lueDouble() {
-        double luku = 0.0;
-        String lukuStr;
-        boolean ok;
-
-        do {
-            ok = true;
-            try {
-                lukuStr = br.readLine();
-                luku = Double.parseDouble(lukuStr);
-            }
-            catch (Exception e) {
-                System.out.println("Virheellinen syöte, anna uudestaan");
-                ok = false;
-            }
-        }
-        while (!ok);
-        return luku;
-    }
+    do {
+      ok = true;
+      try {
+        lukuStr = br.readLine();
+        luku = Integer.parseInt(lukuStr);
+      }
+      catch (Exception e) {
+        System.out.println("Virheellinen syöte, anna uudestaan");
+        ok = false;
+      }
+    } while (!ok);
+    return luku;
+  }
 
 
-    public synchronized static String lueString() {
-        String str = null;
-        boolean ok;
+  public static synchronized double lueDouble() {
+    double luku = 0.0;
+    String lukuStr;
+    boolean ok;
 
-        do {
-            ok = true;
-            try {
-                str = br.readLine();
-            }
-            catch (Exception e) {
-                System.out.println("Virhe lukemisessa, anna uudestaan");
-                ok = false;
-            }
-        }
-        while (!ok);
-        return str;
-    }
+    do {
+      ok = true;
+      try {
+        lukuStr = br.readLine();
+        luku = Double.parseDouble(lukuStr);
+      }
+      catch (Exception e) {
+        System.out.println("Virheellinen syöte, anna uudestaan");
+        ok = false;
+      }
+    } while (!ok);
+    return luku;
+  }
 
 
-    public synchronized static char lueChar() {
-        char merkki = ' ';
-        String str = null;
-        boolean ok;
+  public static synchronized String lueString() {
+    String str = null;
+    boolean ok;
 
-        do {
-            ok = true;
-            try {
-                str = br.readLine();
-                merkki = str.charAt(0);
-            }
-            catch (Exception e) {
-                System.out.println("Virhe lukemisessa, anna uudestaan");
-                ok = false;
-            }
-        }
-        while (!ok);
+    do {
+      ok = true;
+      try {
+        str = br.readLine();
+      }
+      catch (Exception e) {
+        System.out.println("Virhe lukemisessa, anna uudestaan");
+        ok = false;
+      }
+    } while (!ok);
+    return str;
+  }
 
-        return merkki;
-    }
+
+  public static synchronized char lueChar() {
+    char merkki = ' ';
+    String str = null;
+    boolean ok;
+
+    do {
+      ok = true;
+      try {
+        str = br.readLine();
+        merkki = str.charAt(0);
+      }
+      catch (Exception e) {
+        System.out.println("Virhe lukemisessa, anna uudestaan");
+        ok = false;
+      }
+    } while (!ok);
+
+    return merkki;
+  }
 }

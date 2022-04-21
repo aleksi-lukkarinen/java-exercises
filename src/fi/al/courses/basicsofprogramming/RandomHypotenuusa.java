@@ -13,13 +13,14 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.lang.Math;
 
 
+public final class RandomHypotenuusa {
+  private RandomHypotenuusa() {
+    // NOT TO BE CALLED
+  }
 
-
-public class RandomHypotenuusa {
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     double eka = 1 + (Math.random() * 10000);
     double toka = 1 + (Math.random() * 10000);
 

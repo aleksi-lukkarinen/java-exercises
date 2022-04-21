@@ -13,7 +13,8 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
@@ -27,19 +28,25 @@ import java.io.*;
  * Description:
  * </p>
  */
-public class SyotteenTarkistaminen {
+public final class SyotteenTarkistaminen {
+  private SyotteenTarkistaminen() {
+    // NOT TO BE CALLED
+  }
+
+
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     long sum = 0;
 
     System.out.printf("%nSovellus laskee kymmenen syöttämäsi positiivisen kokonaisluvun summan.%n");
 
-    for (int i = 1; i <= 10; i++)
+    for (int i = 1; i <= 10; i++) {
       sum += lueJaTarkista();
+    }
 
     System.out.printf("%nSyöttämiesi lukujen summa on %d.%n", sum);
   }
@@ -61,13 +68,16 @@ public class SyotteenTarkistaminen {
       try {
         number = Integer.parseInt(stdin.readLine());
 
-        if (number < 0)
+        if (number < 0) {
           throw new Exception();
+        }
 
         validInput = true;
-      } catch (NumberFormatException ex) {
+      }
+      catch (NumberFormatException ex) {
         System.out.printf("Syöte ei ole hyväksyttävä luku.%n");
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("Negatiiviset luvut eivät kelpaa.%n");
       }
     }

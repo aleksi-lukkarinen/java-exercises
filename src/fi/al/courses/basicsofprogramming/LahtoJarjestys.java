@@ -20,10 +20,14 @@ package fi.al.courses.basicsofprogramming;
  * Title: LahtoJarjestys
  * </p>
  */
-public class LahtoJarjestys {
-  public static final int NUMBER_OF_SKIERS = 45;
+public final class LahtoJarjestys {
+  private static final int NUMBER_OF_SKIERS = 45;
 
-  public static void main(String[] args) {
+  private LahtoJarjestys() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     int[] skiers = new int[NUMBER_OF_SKIERS + 1];
     int startPos = 0;
 
@@ -48,7 +52,8 @@ public class LahtoJarjestys {
     }
 
     System.out.println("\nLähtöjärjestysnumerot hiihtäjänumeroiden mukaisessa järjestyksessä:");
-    for (int skier = 1; skier <= NUMBER_OF_SKIERS; skier++)
+    for (int skier = 1; skier <= NUMBER_OF_SKIERS; skier++) {
       System.out.printf("Hiihtäjän %2d paikka lähdössä: %d.%n", skier, skiers[skier]);
+    }
   }
 }

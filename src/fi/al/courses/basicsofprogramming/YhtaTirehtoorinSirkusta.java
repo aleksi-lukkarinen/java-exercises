@@ -13,7 +13,8 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
@@ -27,20 +28,30 @@ import java.io.*;
  * Description:
  * </p>
  */
-public class YhtaTirehtoorinSirkusta {
-  /** Lastenlipun hinta */
+public final class YhtaTirehtoorinSirkusta {
+  /** Lastenlipun hinta. */
   private static final long TICKET_PRICE_CHILD = 12;
 
-  /** Aikuistenlipun hinta */
+  /** Aikuistenlipun hinta. */
   private static final long TICKET_PRICE_ADULT = 24;
+
+  private YhtaTirehtoorinSirkusta() {
+    // NOT TO BE CALLED
+  }
 
   /**
    * main
    *
    * @param args String[]
    */
-  public static void main(String[] args) {
-    long countMales = 0, countFemales = 0, countChildren = 0;
+  public static void main(final String[] args) {
+    final int clientTypeMale = 1;
+    final int clientTypeFemale = 2;
+    final int clientTypeChild = 3;
+
+    long countMales = 0;
+    long countFemales = 0;
+    long countChildren = 0;
     long income = 0;
     int clientType = 0;
     String output = "";
@@ -48,13 +59,15 @@ public class YhtaTirehtoorinSirkusta {
     clientType = askClientType();
     while (clientType != 0) {
       switch (clientType) {
-      case 1:
+      case clientTypeMale:
         countMales++;
         break;
-      case 2:
+
+      case clientTypeFemale:
         countFemales++;
         break;
-      case 3:
+
+      case clientTypeChild:
         countChildren++;
         break;
       }
@@ -81,11 +94,13 @@ public class YhtaTirehtoorinSirkusta {
 
       try {
         clientType = Integer.parseInt(stdin.readLine());
-        if (clientType < 0 || clientType > 3)
+        if (clientType < 0 || clientType > 3) {
           throw new Exception();
+        }
 
         return clientType;
-      } catch (Exception ex) {
+      }
+      catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }

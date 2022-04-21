@@ -13,7 +13,8 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 
@@ -23,8 +24,12 @@ import java.io.*;
  * Title: Kuukausitaulukko
  * </p>
  */
-public class Kuukausitaulukko {
-  public static void main(String[] args) {
+public final class Kuukausitaulukko {
+  private Kuukausitaulukko() {
+    // NOT TO BE CALLED
+  }
+
+  public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String input = "";
     String strMonth = "";
@@ -35,15 +40,19 @@ public class Kuukausitaulukko {
       try {
         input = stdin.readLine().trim();
 
-        if (input.equals("."))
+        if (input.equals(".")) {
           break;
+        }
 
         strMonth = monthName(Integer.parseInt(input));
-        if (strMonth != null)
+        if (strMonth != null) {
           System.out.printf("Kysymäsi kuukauden nimi: %s.%n", strMonth);
-        else
+        }
+        else {
           System.out.printf("Syöttämäsi kuukausinumero oli virheellinen.%n");
-      } catch (Exception ex) {
+        }
+      }
+      catch (Exception ex) {
         System.out.printf("Virheellinen syöte.%n");
       }
     }
@@ -53,13 +62,14 @@ public class Kuukausitaulukko {
 
 
 
-  private static String monthName(int month) {
+  private static String monthName(final int month) {
     String[] monthNames = { "Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu",
         "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu" };
 
-    if (month < 1 || month > 12)
+    if (month < 1 || month > 12) {
       return null;
+    }
 
-    return monthNames[--month];
+    return monthNames[month - 1];
   }
 }

@@ -18,12 +18,16 @@ import fi.al.courses.basicsofprogramming.utils.Oma;
 
 
 
-public class PainoindeksiMetodina {
-  public static void main(String[] args) {
-    CalculateBMI();
+public final class PainoindeksiMetodina {
+  private PainoindeksiMetodina() {
+    // NOT TO BE CALLED
   }
 
-  private static void CalculateBMI() {
+  public static void main(final String[] args) {
+    calculateBmi();
+  }
+
+  private static void calculateBmi() {
     double length = 0;
     double weight = 0;
 
@@ -33,10 +37,10 @@ public class PainoindeksiMetodina {
     System.out.printf("%nPaino:%n");
     weight = Oma.lueDouble();
 
-    System.out.printf("%nPainoindeksi on %.2f.%n", BMI(length / 100, weight));
+    System.out.printf("%nPainoindeksi on %.2f.%n", bmi(length / 100, weight));
   }
 
-  private static double BMI(double length, double weight) {
+  private static double bmi(final double length, final double weight) {
     return weight / (length * length);
   }
 }
