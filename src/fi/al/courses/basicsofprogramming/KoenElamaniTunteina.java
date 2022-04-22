@@ -1,5 +1,4 @@
-/**************************************************************************************************
- *
+/**
  * Course: The *VERY* Basics of Programming, Spring 2007
  *
  * Participant: Aleksi Lukkarinen
@@ -7,8 +6,7 @@
  * Title of File: KoenElamaniTunteina
  *
  * Creation Date: 26.1.2007
- *
- **************************************************************************************************/
+ */
 
 package fi.al.courses.basicsofprogramming;
 
@@ -20,17 +18,7 @@ import java.io.InputStreamReader;
 
 
 /**
- * <p>
- * Title: KoenElamaniTunteina
- * </p>
- *
- * <p>
- * Description: My experience of life is measured in hours.
- * </p>
- *
- * <p>
- * Copyright: Copyright (c) Aleksi Lukkarinen 2007
- * </p>
+ * My experience of life is measured in hours.
  *
  * @author Aleksi Lukkarinen
  * @version 1.0
@@ -41,6 +29,7 @@ public final class KoenElamaniTunteina {
   }
 
   /**
+   *
    *
    * @param args String[]
    */
@@ -67,6 +56,7 @@ public final class KoenElamaniTunteina {
 
 
   /**
+   *
    *
    * @param count long
    * @return Time
@@ -115,12 +105,14 @@ public final class KoenElamaniTunteina {
 
   /**
    *
+   *
    * @param hours1   long
    * @param minutes1 long
    * @param seconds1 long
    * @param hours2   long
    * @param minutes2 long
    * @param seconds2 long
+   *
    * @return long Time difference as seconds.
    */
   @SuppressWarnings("unused")
@@ -142,6 +134,7 @@ public final class KoenElamaniTunteina {
 
 
   /**
+   *
    *
    * @param t1 Time
    * @param t2 Time
@@ -175,6 +168,7 @@ public final class KoenElamaniTunteina {
 
   /**
    *
+   *
    * @param hours   long
    * @param minutes long
    * @param seconds long
@@ -188,53 +182,63 @@ public final class KoenElamaniTunteina {
 
 
 /**
- *
- * <p>
- * Title: Time
- * </p>
- *
- * <p>
- * Description: Contains time as hours, minutes and seconds
- * </p>
- *
- * <p>
- * Copyright: Copyright (c) Aleksi Lukkarinen 2007
- * </p>
+ * Contains time as hours, minutes and seconds.
  *
  * @author Aleksi Lukkarinen
  * @version 1.0
  */
 class Time implements Cloneable {
+
+  /**  */
+  private static final int MAX_HOURS = 10000;
+
+  /**  */
+  private static final int MIN_HOURS = 0;
+
+  /**  */
+  private static final int MAX_SECONDS = 59;
+
+  /**  */
+  private static final int MIN_SECONDS = 0;
+
+  /**  */
+  private static final int MIN_MINUTES = 0;
+
+  /**  */
+  private static final int MAX_MINUTES = 59;
+
+  /**  */
   private long hours;
+
+  /**  */
   private long minutes;
+
+  /**  */
   private long seconds;
 
 
-  /**
-   * Amount of seconds in an hour (3600).
-   */
-  public static final long SECONDS_IN_HOUR = 3600;
-
-  /**
-   * Amount of minutes in an hour (60).
-   */
+  /** Number of minutes in an hour (60). */
   public static final long MINUTES_IN_HOUR = 60;
 
-  /**
-   * Amount of seconds in a minute (60).
-   */
+  /** Number of seconds in a minute (60). */
   public static final long SECONDS_IN_MINUTE = 60;
 
+  /** Number of seconds in an hour (3600). */
+  public static final long SECONDS_IN_HOUR = MINUTES_IN_HOUR * SECONDS_IN_MINUTE;
+
 
   /**
-   * Time
+   *
    *
    * @param h int
    * @param m long
    * @param s long
    */
-  public Time(final long h, final long m, final long s) {
-    if (h < 0 || h > 10000 || m < 0 || m > 59 || s < 0 || s > 59) {
+  Time(final long h, final long m, final long s) {
+    if (h < MIN_HOURS || h > MAX_HOURS
+        || m < MIN_MINUTES || m > MAX_MINUTES
+        || s < MIN_SECONDS || s > MAX_SECONDS) {
+
       throw new IllegalArgumentException();
     }
 
@@ -246,6 +250,7 @@ class Time implements Cloneable {
 
   /**
    *
+   *
    * @return long
    */
   public long seconds() {
@@ -254,6 +259,7 @@ class Time implements Cloneable {
 
 
   /**
+   *
    *
    * @return long
    */
@@ -264,6 +270,7 @@ class Time implements Cloneable {
 
   /**
    *
+   *
    * @return long
    */
   public long hours() {
@@ -273,6 +280,7 @@ class Time implements Cloneable {
 
   /**
    *
+   *
    * @return long
    */
   public long asSeconds() {
@@ -281,6 +289,7 @@ class Time implements Cloneable {
 
 
   /**
+   *
    *
    * @param t Time
    * @return Time
@@ -323,6 +332,7 @@ class Time implements Cloneable {
 
 
   /**
+   *
    *
    * @return String
    */

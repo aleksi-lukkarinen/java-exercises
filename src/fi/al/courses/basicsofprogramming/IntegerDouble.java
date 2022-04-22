@@ -21,6 +21,11 @@ public final class IntegerDouble {
     // NOT TO BE CALLED
   }
 
+  /**
+   *
+   *
+   * @param args
+   */
   public static void main(final String[] args) {
     int intLuku;
     double doubleLuku;

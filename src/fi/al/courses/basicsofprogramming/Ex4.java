@@ -18,20 +18,16 @@ import fi.al.utils.Oma;
 
 
 
-/**
- * <p>
- * Title: Ex4
- * </p>
- *
- * <p>
- * Description: Excercise 4
- * </p>
- */
 public final class Ex4 {
   private Ex4() {
     // NOT TO BE CALLED
   }
 
+  /**
+   *
+   *
+   * @param args
+   */
   public static void main(final String[] args) {
     long number = 0;
 

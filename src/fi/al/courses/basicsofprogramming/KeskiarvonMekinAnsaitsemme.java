@@ -19,22 +19,13 @@ import java.io.InputStreamReader;
 
 
 
-/**
- * <p>
- * Title: KeskiarvonMekinAnsaitsemme
- * </p>
- *
- * <p>
- * Description:
- * </p>
- */
 public final class KeskiarvonMekinAnsaitsemme {
   private KeskiarvonMekinAnsaitsemme() {
     // NOT TO BE CALLED
   }
 
   /**
-   * main
+   *
    *
    * @param args String[]
    */

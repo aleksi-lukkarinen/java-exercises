@@ -18,6 +18,11 @@ public final class HeiMaailma {
     // NOT TO BE CALLED
   }
 
+  /**
+   *
+   *
+   * @param args
+   */
   public static void main(final String[] args) {
     System.out.println("Heipä hei koko maailma!");
   }

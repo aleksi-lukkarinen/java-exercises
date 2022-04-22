@@ -19,20 +19,16 @@ import java.io.InputStreamReader;
 
 
 
-/**
- * <p>
- * Title: KahdenJarjestys
- * </p>
- *
- * <p>
- * Description:
- * </p>
- */
 public final class KahdenJarjestys {
   private KahdenJarjestys() {
     // NOT TO BE CALLED
   }
 
+  /**
+   *
+   *
+   * @param args
+   */
   public static void main(final String[] args) {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     boolean validInput = false;

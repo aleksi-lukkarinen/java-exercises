@@ -23,6 +23,11 @@ public final class Hypotenuusa {
     // NOT TO BE CALLED
   }
 
+  /**
+   *
+   *
+   * @param args
+   */
   public static void main(final String[] args) {
     double eka = 0.0;
     double toka = 0.0;
