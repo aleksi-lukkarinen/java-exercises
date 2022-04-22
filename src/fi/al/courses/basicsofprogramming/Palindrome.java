@@ -16,7 +16,7 @@ package fi.al.courses.basicsofprogramming;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import fi.al.courses.basicsofprogramming.utils.ALException;
+import fi.al.utils.ALException;
 
 
 

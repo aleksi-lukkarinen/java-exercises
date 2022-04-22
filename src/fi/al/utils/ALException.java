@@ -1,4 +1,4 @@
-package fi.al.courses.basicsofprogramming.utils;
+package fi.al.utils;
 
 
 

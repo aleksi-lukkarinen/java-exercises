@@ -11,7 +11,7 @@
 package fi.al.courses.basicsofprogramming;
 
 
-import fi.al.courses.basicsofprogramming.utils.Oma;
+import fi.al.utils.Oma;
 
 
 
