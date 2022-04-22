@@ -10,7 +10,11 @@ public class ALException extends Exception {
   private static final long serialVersionUID = 42L;
 
 
-  // Konstruktori
+  /**
+   *
+   *
+   * @param msg
+   */
   public ALException(final String msg) {
     super(msg); // Kutsutaan vain kantaluokan konstruktoria
   }
