@@ -1,0 +1,33 @@
+
+version: "3.8"
+
+services:
+  javadev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - USERNAME:vscode
+      # [Choice] Use the VARIANT arg to pick a Debian OS version: buster, bullseye
+      # Use bullseye when running on local arm64/Apple Silicon.
+      - VARIANT:buster
+      # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
+      - NODE_VERSION:16
+      - INSTALL_MAVEN:false
+      - INSTALL_GRADLE:true
+    volumes:
+      - ../.:/workspace
+      - older-java-exs-dev-extensions:/home/vscode/.vscode-server/extensions
+      - older-java-exs-dev-extensions-insiders:/home/vscode/.vscode-server-insiders/extensions
+    ports:
+      - 22
+    networks:
+      - older-java-exs-dev
+
+volumes:
+  older-java-exs-dev-extensions:
+  older-java-exs-dev-extensions-insiders:
+
+networks:
+  older-java-exs-dev:
+    name: older-java-exs-dev
